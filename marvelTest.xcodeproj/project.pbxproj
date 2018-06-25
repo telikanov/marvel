@@ -7,15 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		50305E28F5827A73220207A4 /* libPods-marvelTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 267AF53AFD43E341DFF5AADD /* libPods-marvelTest.a */; };
+		F612B28920E0647F00A5BD21 /* CharacterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F612B28820E0647F00A5BD21 /* CharacterTableViewCell.m */; };
 		F6BBD5A120E0106800CC3826 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F6BBD5A020E0106800CC3826 /* AppDelegate.m */; };
 		F6BBD5A420E0106800CC3826 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6BBD5A320E0106800CC3826 /* ViewController.m */; };
 		F6BBD5A720E0106800CC3826 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6BBD5A520E0106800CC3826 /* Main.storyboard */; };
 		F6BBD5A920E0106B00CC3826 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6BBD5A820E0106B00CC3826 /* Assets.xcassets */; };
 		F6BBD5AC20E0106B00CC3826 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6BBD5AA20E0106B00CC3826 /* LaunchScreen.storyboard */; };
 		F6BBD5AF20E0106B00CC3826 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F6BBD5AE20E0106B00CC3826 /* main.m */; };
+		F6BBD5B820E0154700CC3826 /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = F6BBD5B720E0154700CC3826 /* NSString+MD5.m */; };
+		F6BBD5BC20E016BA00CC3826 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F6BBD5BB20E016BA00CC3826 /* NetworkManager.m */; };
+		F6BBD5BF20E035D900CC3826 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F6BBD5BE20E035D900CC3826 /* DataManager.m */; };
+		F6BBD5C320E060AA00CC3826 /* ChatListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6BBD5C220E060AA00CC3826 /* ChatListViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		267AF53AFD43E341DFF5AADD /* libPods-marvelTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-marvelTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		94936630D8B31B855FAF6312 /* Pods-marvelTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-marvelTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-marvelTest/Pods-marvelTest.release.xcconfig"; sourceTree = "<group>"; };
+		94A6B1AB700587C1414DA191 /* Pods-marvelTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-marvelTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-marvelTest/Pods-marvelTest.debug.xcconfig"; sourceTree = "<group>"; };
+		F612B28720E0647F00A5BD21 /* CharacterTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CharacterTableViewCell.h; sourceTree = "<group>"; };
+		F612B28820E0647F00A5BD21 /* CharacterTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CharacterTableViewCell.m; sourceTree = "<group>"; };
 		F6BBD59C20E0106800CC3826 /* marvelTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = marvelTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6BBD59F20E0106800CC3826 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F6BBD5A020E0106800CC3826 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -26,6 +37,14 @@
 		F6BBD5AB20E0106B00CC3826 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F6BBD5AD20E0106B00CC3826 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F6BBD5AE20E0106B00CC3826 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F6BBD5B620E0154700CC3826 /* NSString+MD5.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
+		F6BBD5B720E0154700CC3826 /* NSString+MD5.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5.m"; sourceTree = "<group>"; };
+		F6BBD5BA20E016BA00CC3826 /* NetworkManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
+		F6BBD5BB20E016BA00CC3826 /* NetworkManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
+		F6BBD5BD20E035D900CC3826 /* DataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DataManager.h; path = marvelTest/DataManager.h; sourceTree = SOURCE_ROOT; };
+		F6BBD5BE20E035D900CC3826 /* DataManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DataManager.m; path = marvelTest/DataManager.m; sourceTree = SOURCE_ROOT; };
+		F6BBD5C120E060AA00CC3826 /* ChatListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatListViewController.h; sourceTree = "<group>"; };
+		F6BBD5C220E060AA00CC3826 /* ChatListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatListViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +52,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50305E28F5827A73220207A4 /* libPods-marvelTest.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		777FA09C5C3C78570C3241EF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				94A6B1AB700587C1414DA191 /* Pods-marvelTest.debug.xcconfig */,
+				94936630D8B31B855FAF6312 /* Pods-marvelTest.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A4C3A354CD556164AA53FBA5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				267AF53AFD43E341DFF5AADD /* libPods-marvelTest.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F6BBD59320E0106800CC3826 = {
 			isa = PBXGroup;
 			children = (
 				F6BBD59E20E0106800CC3826 /* marvelTest */,
 				F6BBD59D20E0106800CC3826 /* Products */,
+				777FA09C5C3C78570C3241EF /* Pods */,
+				A4C3A354CD556164AA53FBA5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,6 +97,9 @@
 		F6BBD59E20E0106800CC3826 /* marvelTest */ = {
 			isa = PBXGroup;
 			children = (
+				F6BBD5BD20E035D900CC3826 /* DataManager.h */,
+				F6BBD5BE20E035D900CC3826 /* DataManager.m */,
+				F6BBD5B520E0151600CC3826 /* Category */,
 				F6BBD59F20E0106800CC3826 /* AppDelegate.h */,
 				F6BBD5A020E0106800CC3826 /* AppDelegate.m */,
 				F6BBD5A220E0106800CC3826 /* ViewController.h */,
@@ -67,8 +109,23 @@
 				F6BBD5AA20E0106B00CC3826 /* LaunchScreen.storyboard */,
 				F6BBD5AD20E0106B00CC3826 /* Info.plist */,
 				F6BBD5AE20E0106B00CC3826 /* main.m */,
+				F6BBD5BA20E016BA00CC3826 /* NetworkManager.h */,
+				F6BBD5BB20E016BA00CC3826 /* NetworkManager.m */,
+				F6BBD5C120E060AA00CC3826 /* ChatListViewController.h */,
+				F6BBD5C220E060AA00CC3826 /* ChatListViewController.m */,
+				F612B28720E0647F00A5BD21 /* CharacterTableViewCell.h */,
+				F612B28820E0647F00A5BD21 /* CharacterTableViewCell.m */,
 			);
 			path = marvelTest;
+			sourceTree = "<group>";
+		};
+		F6BBD5B520E0151600CC3826 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				F6BBD5B620E0154700CC3826 /* NSString+MD5.h */,
+				F6BBD5B720E0154700CC3826 /* NSString+MD5.m */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -78,6 +135,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F6BBD5B220E0106B00CC3826 /* Build configuration list for PBXNativeTarget "marvelTest" */;
 			buildPhases = (
+				B1552932E4CAD1B43456FB35 /* [CP] Check Pods Manifest.lock */,
 				F6BBD59820E0106800CC3826 /* Sources */,
 				F6BBD59920E0106800CC3826 /* Frameworks */,
 				F6BBD59A20E0106800CC3826 /* Resources */,
@@ -136,13 +194,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		B1552932E4CAD1B43456FB35 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-marvelTest-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F6BBD59820E0106800CC3826 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				F6BBD5A420E0106800CC3826 /* ViewController.m in Sources */,
+				F6BBD5BF20E035D900CC3826 /* DataManager.m in Sources */,
+				F6BBD5BC20E016BA00CC3826 /* NetworkManager.m in Sources */,
+				F612B28920E0647F00A5BD21 /* CharacterTableViewCell.m in Sources */,
 				F6BBD5AF20E0106B00CC3826 /* main.m in Sources */,
+				F6BBD5C320E060AA00CC3826 /* ChatListViewController.m in Sources */,
+				F6BBD5B820E0154700CC3826 /* NSString+MD5.m in Sources */,
 				F6BBD5A120E0106800CC3826 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -281,6 +365,7 @@
 		};
 		F6BBD5B320E0106B00CC3826 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 94A6B1AB700587C1414DA191 /* Pods-marvelTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -298,6 +383,7 @@
 		};
 		F6BBD5B420E0106B00CC3826 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 94936630D8B31B855FAF6312 /* Pods-marvelTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
