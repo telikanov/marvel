@@ -7,6 +7,7 @@
 //
 
 #import "CharacterTableViewCell.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @implementation CharacterTableViewCell
 
@@ -18,7 +19,14 @@
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
-    // Configure the view for the selected state
+}
+
+- (UITableViewCell *)cellFilling:(NSString *)title urlImage:(NSString *)imagePath {
+    self.charasterLabel.text = title;
+    [self.charasterImageView sd_setImageWithURL:[NSURL URLWithString:imagePath]
+                               placeholderImage:[UIImage imageNamed:@"placeholder"]];
+    
+    return self;
 }
 
 @end

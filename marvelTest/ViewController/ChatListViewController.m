@@ -8,7 +8,6 @@
 
 #import "ChatListViewController.h"
 #import "CharacterTableViewCell.h"
-#import <SDWebImage/UIImageView+WebCache.h>
 #import "NetworkManager.h"
 #import "UIScrollView+RefreshControl.h"
 
@@ -33,7 +32,8 @@
 
 - (void)addRefreshBottom {
     __weak typeof(self) weakSelf = self;
-    [self.tableView addBottomRefreshControlUsingBlock:^{        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    [self.tableView addBottomRefreshControlUsingBlock:^{
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [weakSelf charactersData];
     });
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -68,23 +68,24 @@
     return self.data.count;
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     CharacterTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    NSArray *responseObjectData = [NSArray arrayWithArray:self.data];
-    responseObjectData = responseObjectData[indexPath.row];
-    cell.charasterLabel.text = [responseObjectData valueForKey:@"name"];
     
-    NSDictionary *imagePack = [responseObjectData valueForKey:@"thumbnail"];
+    NSArray *arrayForCell = [self dataPreparationForCell:self.data cellForRowAtIndexPath:indexPath];
+    
+    NSDictionary *imagePack = [arrayForCell valueForKey:@"thumbnail"];
     NSString *pathImage = [imagePack valueForKey:@"path"];
     NSString *extensionImage = [imagePack valueForKey:@"extension"];
     NSString *allPath = [NSString stringWithFormat:@"%@.%@", pathImage, extensionImage];
     
+    return [cell cellFilling:[arrayForCell valueForKey:@"name"] urlImage:allPath];
+}
+
+-(NSArray *)dataPreparationForCell:(NSMutableArray *)dataMutableArray cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSArray *responseObjectData = [NSArray arrayWithArray:dataMutableArray];
+    responseObjectData = responseObjectData[indexPath.row];
     
-    [cell.charasterImageView sd_setImageWithURL:[NSURL URLWithString:allPath]
-                 placeholderImage:[UIImage imageNamed:@"placeholder"]];
-    
-    return cell;
+    return responseObjectData;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

@@ -76,6 +76,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F68B83AF20E1933C001CD497 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F6BBD5C120E060AA00CC3826 /* ChatListViewController.h */,
+				F6BBD5C220E060AA00CC3826 /* ChatListViewController.m */,
+				F612B28720E0647F00A5BD21 /* CharacterTableViewCell.h */,
+				F612B28820E0647F00A5BD21 /* CharacterTableViewCell.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		F6BBD59320E0106800CC3826 = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +108,7 @@
 		F6BBD59E20E0106800CC3826 /* marvelTest */ = {
 			isa = PBXGroup;
 			children = (
+				F68B83AF20E1933C001CD497 /* ViewController */,
 				F6BBD5BD20E035D900CC3826 /* DataManager.h */,
 				F6BBD5BE20E035D900CC3826 /* DataManager.m */,
 				F6BBD5B520E0151600CC3826 /* Category */,
@@ -111,10 +123,6 @@
 				F6BBD5AE20E0106B00CC3826 /* main.m */,
 				F6BBD5BA20E016BA00CC3826 /* NetworkManager.h */,
 				F6BBD5BB20E016BA00CC3826 /* NetworkManager.m */,
-				F6BBD5C120E060AA00CC3826 /* ChatListViewController.h */,
-				F6BBD5C220E060AA00CC3826 /* ChatListViewController.m */,
-				F612B28720E0647F00A5BD21 /* CharacterTableViewCell.h */,
-				F612B28820E0647F00A5BD21 /* CharacterTableViewCell.m */,
 			);
 			path = marvelTest;
 			sourceTree = "<group>";

@@ -12,4 +12,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *charasterImageView;
 @property (weak, nonatomic) IBOutlet UILabel *charasterLabel;
 
+- (UITableViewCell *)cellFilling:(NSString *)title urlImage:(NSString *)imagePath;
+
 @end
