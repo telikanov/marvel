@@ -7,9 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ChatRLMObject.h"
 
 @interface DataManager : NSObject
 
 - (void)insertDataIntoDataBaseWithId:(id)idCharaster witchName:(NSString *)nameCharaster witchAvatar:(NSString *)pathAvatar;
+- (ChatRLMObject *)getDialogWithID:(long)idCharaster;
 
 @end

@@ -57,13 +57,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "marvelTest/ViewController/ChatListViewController.m"
-            timestampString = "551738253.6036021"
+            filePath = "marvelTest/DataManager/DataManager.m"
+            timestampString = "551745175.7642601"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
-            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "-getDialogWithID:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "marvelTest/DataManager/DataManager.m"
+            timestampString = "551745175.764807"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "-insertDataIntoDataBaseWithId:witchName:witchAvatar:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -7,12 +7,16 @@
 //
 
 #import "DataManager.h"
-#import "ChatRLMObject.h"
 #import "Realm.h"
 
 @implementation DataManager
 
 - (void)insertDataIntoDataBaseWithId:(id)idCharaster witchName:(NSString *)nameCharaster witchAvatar:(NSString *)pathAvatar {
+    ChatRLMObject *existObject = [[ChatRLMObject objectsWhere:@"idCharaster == %ld",[idCharaster longLongValue]]firstObject];
+    if(existObject) {
+        return;
+    }
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"FirsDialog" object:nil];
     RLMRealm *realm = [RLMRealm defaultRealm];
     [realm beginWriteTransaction];
     
@@ -22,6 +26,12 @@
     chatObject.avatarPath = pathAvatar;
     [realm addObject:chatObject];
     [realm commitWriteTransaction];
+}
+
+- (ChatRLMObject *)getDialogWithID:(long)idCharaster {
+    ChatRLMObject *chatObject = [[ChatRLMObject objectsWhere:@"idCharaster == %ld",idCharaster]firstObject];
+    
+    return chatObject;
 }
 
 @end
