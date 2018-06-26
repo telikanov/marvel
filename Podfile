@@ -5,4 +5,5 @@ target 'marvelTest' do
   pod 'AFNetworking', '~> 3.0'
   pod 'SDWebImage'
   pod 'RefreshControl'
+  pod 'Realm'
 end

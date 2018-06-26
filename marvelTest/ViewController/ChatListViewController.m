@@ -9,12 +9,15 @@
 #import "ChatListViewController.h"
 #import "CharacterTableViewCell.h"
 #import "NetworkManager.h"
+#import "DataManager.h"
 #import "UIScrollView+RefreshControl.h"
+#import "ChatViewController.h"
 
 @interface ChatListViewController ()
 
 @property (nonatomic, copy) NSArray *responseJSON;
 @property (nonatomic, retain) NSMutableArray *data;
+@property (nonatomic, strong) NSString *allPath;
 
 @end
 
@@ -28,6 +31,8 @@
     [super viewDidLoad];
     [self charactersData];
     [self addRefreshBottom];
+    
+    [self.navigationItem setTitle:@"Герои Marvel"];
 }
 
 - (void)addRefreshBottom {
@@ -44,7 +49,6 @@
 }
 
 - (void) charactersData {
-    
     __weak __typeof__(self) weakSelf = self;
     [[NetworkManager sharedManager] getCharacters:@"1" limit:[NSString stringWithFormat:@"%ld", (long)self.limitCharacters] offset:[NSString stringWithFormat:@"%ld", (long)self.offsetCharacters] completionHandler:^(NSArray *array) {
         if (array) {
@@ -76,9 +80,9 @@
     NSDictionary *imagePack = [arrayForCell valueForKey:@"thumbnail"];
     NSString *pathImage = [imagePack valueForKey:@"path"];
     NSString *extensionImage = [imagePack valueForKey:@"extension"];
-    NSString *allPath = [NSString stringWithFormat:@"%@.%@", pathImage, extensionImage];
+    self.allPath = [NSString stringWithFormat:@"%@.%@", pathImage, extensionImage];
     
-    return [cell cellFilling:[arrayForCell valueForKey:@"name"] urlImage:allPath];
+    return [cell cellFilling:[arrayForCell valueForKey:@"name"] urlImage:self.allPath];
 }
 
 -(NSArray *)dataPreparationForCell:(NSMutableArray *)dataMutableArray cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -91,6 +95,16 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 90;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSArray *arrayForCell = [self dataPreparationForCell:self.data cellForRowAtIndexPath:indexPath];
+    [[DataManager new] insertDataIntoDataBaseWithId:[arrayForCell valueForKey:@"id"] witchName:[arrayForCell valueForKey:@"name"] witchAvatar:self.allPath];
+    
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@" " style:UIBarButtonItemStylePlain target:nil action:nil];
+    ChatViewController *chatViewController = [ChatViewController new];
+    chatViewController.idCharaster = [[arrayForCell valueForKey:@"id"] longLongValue];
+    [self.navigationController pushViewController:chatViewController animated:YES];
 }
 
 /*

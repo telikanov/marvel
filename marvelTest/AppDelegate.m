@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "ChatViewController.h"
+
 
 @interface AppDelegate ()
 

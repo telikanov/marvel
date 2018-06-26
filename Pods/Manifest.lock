@@ -14,6 +14,9 @@ PODS:
   - AFNetworking/Serialization (3.2.0)
   - AFNetworking/UIKit (3.2.0):
     - AFNetworking/NSURLSession
+  - Realm (3.3.2):
+    - Realm/Headers (= 3.3.2)
+  - Realm/Headers (3.3.2)
   - RefreshControl (2.0.5)
   - SDWebImage (4.3.3):
     - SDWebImage/Core (= 4.3.3)
@@ -21,20 +24,23 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
+  - Realm
   - RefreshControl
   - SDWebImage
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - AFNetworking
+    - Realm
     - RefreshControl
     - SDWebImage
 
 SPEC CHECKSUMS:
   AFNetworking: 8ac6017b94ea105479f7776e5288e48ae9c59bb4
+  Realm: d927fbf66df5532cfafc08afb5f7e53ded37b894
   RefreshControl: 12281dd89de757022fa708a45bd003a41ad060ed
   SDWebImage: de4d90b5bff3571eae7bd16202b1f43135409fa5
 
-PODFILE CHECKSUM: 5e77c294c96fd1ba529f764112926c7ed366c3bb
+PODFILE CHECKSUM: c471afef4c54a2f37c3baf9991922c98b3c7d442
 
 COCOAPODS: 1.5.0

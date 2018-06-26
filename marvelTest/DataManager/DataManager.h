@@ -10,4 +10,6 @@
 
 @interface DataManager : NSObject
 
+- (void)insertDataIntoDataBaseWithId:(id)idCharaster witchName:(NSString *)nameCharaster witchAvatar:(NSString *)pathAvatar;
+
 @end

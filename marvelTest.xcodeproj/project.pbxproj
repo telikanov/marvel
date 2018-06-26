@@ -9,8 +9,14 @@
 /* Begin PBXBuildFile section */
 		50305E28F5827A73220207A4 /* libPods-marvelTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 267AF53AFD43E341DFF5AADD /* libPods-marvelTest.a */; };
 		F612B28920E0647F00A5BD21 /* CharacterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F612B28820E0647F00A5BD21 /* CharacterTableViewCell.m */; };
+		F68B83B920E1AD17001CD497 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F68B83B720E1AD17001CD497 /* ChatViewController.m */; };
+		F68B83BF20E24786001CD497 /* libc++.1.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F68B83BE20E24786001CD497 /* libc++.1.tbd */; };
+		F68B83C220E24F5C001CD497 /* ChatRLMObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F68B83C120E24F5C001CD497 /* ChatRLMObject.m */; };
+		F68B83D220E27AA9001CD497 /* Dialog.m in Sources */ = {isa = PBXBuildFile; fileRef = F68B83D120E27AA9001CD497 /* Dialog.m */; };
+		F68B83D520E2C601001CD497 /* DialogCharasterViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F68B83D420E2C601001CD497 /* DialogCharasterViewCell.xib */; };
+		F68B83D820E2C98C001CD497 /* DialogCharasterViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F68B83D720E2C98C001CD497 /* DialogCharasterViewCell.m */; };
+		F68B83DA20E2DAFE001CD497 /* ChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F68B83D920E2DAFE001CD497 /* ChatViewController.xib */; };
 		F6BBD5A120E0106800CC3826 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F6BBD5A020E0106800CC3826 /* AppDelegate.m */; };
-		F6BBD5A420E0106800CC3826 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6BBD5A320E0106800CC3826 /* ViewController.m */; };
 		F6BBD5A720E0106800CC3826 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6BBD5A520E0106800CC3826 /* Main.storyboard */; };
 		F6BBD5A920E0106B00CC3826 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6BBD5A820E0106B00CC3826 /* Assets.xcassets */; };
 		F6BBD5AC20E0106B00CC3826 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6BBD5AA20E0106B00CC3826 /* LaunchScreen.storyboard */; };
@@ -27,11 +33,20 @@
 		94A6B1AB700587C1414DA191 /* Pods-marvelTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-marvelTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-marvelTest/Pods-marvelTest.debug.xcconfig"; sourceTree = "<group>"; };
 		F612B28720E0647F00A5BD21 /* CharacterTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CharacterTableViewCell.h; sourceTree = "<group>"; };
 		F612B28820E0647F00A5BD21 /* CharacterTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CharacterTableViewCell.m; sourceTree = "<group>"; };
+		F68B83B620E1AD17001CD497 /* ChatViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
+		F68B83B720E1AD17001CD497 /* ChatViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
+		F68B83BE20E24786001CD497 /* libc++.1.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.1.tbd"; path = "usr/lib/libc++.1.tbd"; sourceTree = SDKROOT; };
+		F68B83C020E24F5C001CD497 /* ChatRLMObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatRLMObject.h; sourceTree = "<group>"; };
+		F68B83C120E24F5C001CD497 /* ChatRLMObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatRLMObject.m; sourceTree = "<group>"; };
+		F68B83D020E27AA9001CD497 /* Dialog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Dialog.h; sourceTree = "<group>"; };
+		F68B83D120E27AA9001CD497 /* Dialog.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Dialog.m; sourceTree = "<group>"; };
+		F68B83D420E2C601001CD497 /* DialogCharasterViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DialogCharasterViewCell.xib; sourceTree = "<group>"; };
+		F68B83D620E2C98C001CD497 /* DialogCharasterViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DialogCharasterViewCell.h; sourceTree = "<group>"; };
+		F68B83D720E2C98C001CD497 /* DialogCharasterViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DialogCharasterViewCell.m; sourceTree = "<group>"; };
+		F68B83D920E2DAFE001CD497 /* ChatViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatViewController.xib; sourceTree = "<group>"; };
 		F6BBD59C20E0106800CC3826 /* marvelTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = marvelTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6BBD59F20E0106800CC3826 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F6BBD5A020E0106800CC3826 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		F6BBD5A220E0106800CC3826 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		F6BBD5A320E0106800CC3826 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		F6BBD5A620E0106800CC3826 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F6BBD5A820E0106B00CC3826 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F6BBD5AB20E0106B00CC3826 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -41,8 +56,8 @@
 		F6BBD5B720E0154700CC3826 /* NSString+MD5.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5.m"; sourceTree = "<group>"; };
 		F6BBD5BA20E016BA00CC3826 /* NetworkManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
 		F6BBD5BB20E016BA00CC3826 /* NetworkManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
-		F6BBD5BD20E035D900CC3826 /* DataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DataManager.h; path = marvelTest/DataManager.h; sourceTree = SOURCE_ROOT; };
-		F6BBD5BE20E035D900CC3826 /* DataManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DataManager.m; path = marvelTest/DataManager.m; sourceTree = SOURCE_ROOT; };
+		F6BBD5BD20E035D900CC3826 /* DataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DataManager.h; path = marvelTest/DataManager/DataManager.h; sourceTree = SOURCE_ROOT; };
+		F6BBD5BE20E035D900CC3826 /* DataManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DataManager.m; path = marvelTest/DataManager/DataManager.m; sourceTree = SOURCE_ROOT; };
 		F6BBD5C120E060AA00CC3826 /* ChatListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatListViewController.h; sourceTree = "<group>"; };
 		F6BBD5C220E060AA00CC3826 /* ChatListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatListViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -52,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F68B83BF20E24786001CD497 /* libc++.1.tbd in Frameworks */,
 				50305E28F5827A73220207A4 /* libPods-marvelTest.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -71,6 +87,7 @@
 		A4C3A354CD556164AA53FBA5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F68B83BE20E24786001CD497 /* libc++.1.tbd */,
 				267AF53AFD43E341DFF5AADD /* libPods-marvelTest.a */,
 			);
 			name = Frameworks;
@@ -79,12 +96,39 @@
 		F68B83AF20E1933C001CD497 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				F68B83D320E2C5C1001CD497 /* Cell */,
+				F68B83B620E1AD17001CD497 /* ChatViewController.h */,
+				F68B83B720E1AD17001CD497 /* ChatViewController.m */,
 				F6BBD5C120E060AA00CC3826 /* ChatListViewController.h */,
 				F6BBD5C220E060AA00CC3826 /* ChatListViewController.m */,
-				F612B28720E0647F00A5BD21 /* CharacterTableViewCell.h */,
-				F612B28820E0647F00A5BD21 /* CharacterTableViewCell.m */,
+				F68B83D920E2DAFE001CD497 /* ChatViewController.xib */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		F68B83C320E265F3001CD497 /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				F6BBD5BD20E035D900CC3826 /* DataManager.h */,
+				F6BBD5BE20E035D900CC3826 /* DataManager.m */,
+				F68B83C020E24F5C001CD497 /* ChatRLMObject.h */,
+				F68B83C120E24F5C001CD497 /* ChatRLMObject.m */,
+				F68B83D020E27AA9001CD497 /* Dialog.h */,
+				F68B83D120E27AA9001CD497 /* Dialog.m */,
+			);
+			path = DataManager;
+			sourceTree = "<group>";
+		};
+		F68B83D320E2C5C1001CD497 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				F612B28720E0647F00A5BD21 /* CharacterTableViewCell.h */,
+				F612B28820E0647F00A5BD21 /* CharacterTableViewCell.m */,
+				F68B83D420E2C601001CD497 /* DialogCharasterViewCell.xib */,
+				F68B83D620E2C98C001CD497 /* DialogCharasterViewCell.h */,
+				F68B83D720E2C98C001CD497 /* DialogCharasterViewCell.m */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		F6BBD59320E0106800CC3826 = {
@@ -108,14 +152,11 @@
 		F6BBD59E20E0106800CC3826 /* marvelTest */ = {
 			isa = PBXGroup;
 			children = (
+				F68B83C320E265F3001CD497 /* DataManager */,
 				F68B83AF20E1933C001CD497 /* ViewController */,
-				F6BBD5BD20E035D900CC3826 /* DataManager.h */,
-				F6BBD5BE20E035D900CC3826 /* DataManager.m */,
 				F6BBD5B520E0151600CC3826 /* Category */,
 				F6BBD59F20E0106800CC3826 /* AppDelegate.h */,
 				F6BBD5A020E0106800CC3826 /* AppDelegate.m */,
-				F6BBD5A220E0106800CC3826 /* ViewController.h */,
-				F6BBD5A320E0106800CC3826 /* ViewController.m */,
 				F6BBD5A520E0106800CC3826 /* Main.storyboard */,
 				F6BBD5A820E0106B00CC3826 /* Assets.xcassets */,
 				F6BBD5AA20E0106B00CC3826 /* LaunchScreen.storyboard */,
@@ -196,6 +237,8 @@
 			files = (
 				F6BBD5AC20E0106B00CC3826 /* LaunchScreen.storyboard in Resources */,
 				F6BBD5A920E0106B00CC3826 /* Assets.xcassets in Resources */,
+				F68B83D520E2C601001CD497 /* DialogCharasterViewCell.xib in Resources */,
+				F68B83DA20E2DAFE001CD497 /* ChatViewController.xib in Resources */,
 				F6BBD5A720E0106800CC3826 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -228,14 +271,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F6BBD5A420E0106800CC3826 /* ViewController.m in Sources */,
 				F6BBD5BF20E035D900CC3826 /* DataManager.m in Sources */,
+				F68B83D220E27AA9001CD497 /* Dialog.m in Sources */,
 				F6BBD5BC20E016BA00CC3826 /* NetworkManager.m in Sources */,
 				F612B28920E0647F00A5BD21 /* CharacterTableViewCell.m in Sources */,
 				F6BBD5AF20E0106B00CC3826 /* main.m in Sources */,
 				F6BBD5C320E060AA00CC3826 /* ChatListViewController.m in Sources */,
 				F6BBD5B820E0154700CC3826 /* NSString+MD5.m in Sources */,
+				F68B83C220E24F5C001CD497 /* ChatRLMObject.m in Sources */,
+				F68B83B920E1AD17001CD497 /* ChatViewController.m in Sources */,
 				F6BBD5A120E0106800CC3826 /* AppDelegate.m in Sources */,
+				F68B83D820E2C98C001CD497 /* DialogCharasterViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
