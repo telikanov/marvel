@@ -9,10 +9,11 @@
 #import "ChatViewController.h"
 #import "ChatRLMObject.h"
 #import "DataManager.h"
+#import "DialogCharasterView.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface ChatViewController () {
     DataManager *dataManager;
-    ChatRLMObject *chatRLMObject;
 }
 @end
 
@@ -20,15 +21,29 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.navigationController.navigationBar.translucent = NO;
     dataManager = [DataManager new];
-    chatRLMObject = [dataManager getDialogWithID:self.idCharaster];
-    [self.navigationItem setTitle:[NSString stringWithFormat:@"%@", chatRLMObject.name]];
+    self.chatRLMObject = [dataManager getDialogWithID:self.idCharaster];
+    [self.navigationItem setTitle:[NSString stringWithFormat:@"%@", self.chatRLMObject.name]];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(didGetMyNotification)
+                                             selector:@selector(firstMessageFrom)
                                                  name:@"FirsDialog"
                                                object:nil];
+    
+    [self firstMessageFrom];
+}
+
+- (void)firstMessageFrom {
+    DialogCharasterView *dialogView = [[[NSBundle mainBundle] loadNibNamed:@"DialogCharasterView" owner:self options:nil] objectAtIndex:0];
+    
+    SDImageCache* myCache = [SDImageCache sharedImageCache];
+    UIImage* avatar = [myCache imageFromDiskCacheForKey:self.chatRLMObject.avatarPath];
+    dialogView.avatarImageView.image = avatar;
+    dialogView.textLabel.text = [NSString stringWithFormat:@"Привет, мой друг, меня зовут %@",self.chatRLMObject.name];
+    
+    [self.dialogStackView addArrangedSubview:dialogView];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -36,14 +51,5 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

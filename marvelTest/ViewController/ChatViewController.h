@@ -14,4 +14,7 @@
 @property (nonatomic, strong) ChatRLMObject *chatRLMObject;
 @property (nonatomic, assign) long idCharaster;
 
+@property (weak, nonatomic) IBOutlet UIStackView *dialogStackView;
+@property (weak, nonatomic) IBOutlet UIStackView *variantsAnswersStackView;
+
 @end

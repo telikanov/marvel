@@ -13,8 +13,8 @@
 		F68B83BF20E24786001CD497 /* libc++.1.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F68B83BE20E24786001CD497 /* libc++.1.tbd */; };
 		F68B83C220E24F5C001CD497 /* ChatRLMObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F68B83C120E24F5C001CD497 /* ChatRLMObject.m */; };
 		F68B83D220E27AA9001CD497 /* Dialog.m in Sources */ = {isa = PBXBuildFile; fileRef = F68B83D120E27AA9001CD497 /* Dialog.m */; };
-		F68B83D520E2C601001CD497 /* DialogCharasterViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F68B83D420E2C601001CD497 /* DialogCharasterViewCell.xib */; };
-		F68B83D820E2C98C001CD497 /* DialogCharasterViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F68B83D720E2C98C001CD497 /* DialogCharasterViewCell.m */; };
+		F68B83D520E2C601001CD497 /* DialogCharasterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F68B83D420E2C601001CD497 /* DialogCharasterView.xib */; };
+		F68B83D820E2C98C001CD497 /* DialogCharasterView.m in Sources */ = {isa = PBXBuildFile; fileRef = F68B83D720E2C98C001CD497 /* DialogCharasterView.m */; };
 		F68B83DA20E2DAFE001CD497 /* ChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F68B83D920E2DAFE001CD497 /* ChatViewController.xib */; };
 		F6BBD5A120E0106800CC3826 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F6BBD5A020E0106800CC3826 /* AppDelegate.m */; };
 		F6BBD5A720E0106800CC3826 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6BBD5A520E0106800CC3826 /* Main.storyboard */; };
@@ -40,9 +40,9 @@
 		F68B83C120E24F5C001CD497 /* ChatRLMObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatRLMObject.m; sourceTree = "<group>"; };
 		F68B83D020E27AA9001CD497 /* Dialog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Dialog.h; sourceTree = "<group>"; };
 		F68B83D120E27AA9001CD497 /* Dialog.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Dialog.m; sourceTree = "<group>"; };
-		F68B83D420E2C601001CD497 /* DialogCharasterViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DialogCharasterViewCell.xib; sourceTree = "<group>"; };
-		F68B83D620E2C98C001CD497 /* DialogCharasterViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DialogCharasterViewCell.h; sourceTree = "<group>"; };
-		F68B83D720E2C98C001CD497 /* DialogCharasterViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DialogCharasterViewCell.m; sourceTree = "<group>"; };
+		F68B83D420E2C601001CD497 /* DialogCharasterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DialogCharasterView.xib; sourceTree = "<group>"; };
+		F68B83D620E2C98C001CD497 /* DialogCharasterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DialogCharasterView.h; sourceTree = "<group>"; };
+		F68B83D720E2C98C001CD497 /* DialogCharasterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DialogCharasterView.m; sourceTree = "<group>"; };
 		F68B83D920E2DAFE001CD497 /* ChatViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatViewController.xib; sourceTree = "<group>"; };
 		F6BBD59C20E0106800CC3826 /* marvelTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = marvelTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6BBD59F20E0106800CC3826 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -124,9 +124,9 @@
 			children = (
 				F612B28720E0647F00A5BD21 /* CharacterTableViewCell.h */,
 				F612B28820E0647F00A5BD21 /* CharacterTableViewCell.m */,
-				F68B83D420E2C601001CD497 /* DialogCharasterViewCell.xib */,
-				F68B83D620E2C98C001CD497 /* DialogCharasterViewCell.h */,
-				F68B83D720E2C98C001CD497 /* DialogCharasterViewCell.m */,
+				F68B83D420E2C601001CD497 /* DialogCharasterView.xib */,
+				F68B83D620E2C98C001CD497 /* DialogCharasterView.h */,
+				F68B83D720E2C98C001CD497 /* DialogCharasterView.m */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -237,7 +237,7 @@
 			files = (
 				F6BBD5AC20E0106B00CC3826 /* LaunchScreen.storyboard in Resources */,
 				F6BBD5A920E0106B00CC3826 /* Assets.xcassets in Resources */,
-				F68B83D520E2C601001CD497 /* DialogCharasterViewCell.xib in Resources */,
+				F68B83D520E2C601001CD497 /* DialogCharasterView.xib in Resources */,
 				F68B83DA20E2DAFE001CD497 /* ChatViewController.xib in Resources */,
 				F6BBD5A720E0106800CC3826 /* Main.storyboard in Resources */,
 			);
@@ -281,7 +281,7 @@
 				F68B83C220E24F5C001CD497 /* ChatRLMObject.m in Sources */,
 				F68B83B920E1AD17001CD497 /* ChatViewController.m in Sources */,
 				F6BBD5A120E0106800CC3826 /* AppDelegate.m in Sources */,
-				F68B83D820E2C98C001CD497 /* DialogCharasterViewCell.m in Sources */,
+				F68B83D820E2C98C001CD497 /* DialogCharasterView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

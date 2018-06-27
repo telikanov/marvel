@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DialogCharasterViewCell : UIView
+@interface DialogCharasterView : UIView
 
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
 @property (weak, nonatomic) IBOutlet UILabel *textLabel;

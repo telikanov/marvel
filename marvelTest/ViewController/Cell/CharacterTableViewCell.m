@@ -26,6 +26,9 @@
     [self.charasterImageView sd_setImageWithURL:[NSURL URLWithString:imagePath]
                                placeholderImage:[UIImage imageNamed:@"placeholder"]];
     
+    self.layer.masksToBounds = true;
+    [self.charasterImageView.layer setCornerRadius:12];
+    
     return self;
 }
 
