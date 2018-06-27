@@ -16,5 +16,7 @@
 
 @property (weak, nonatomic) IBOutlet UIStackView *dialogStackView;
 @property (weak, nonatomic) IBOutlet UIStackView *variantsAnswersStackView;
+@property (weak, nonatomic) IBOutlet UIScrollView *chatScrollView;
+@property (weak, nonatomic) IBOutlet UIView *userReplicasView;
 
 @end

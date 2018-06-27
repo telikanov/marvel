@@ -39,6 +39,15 @@
     [self donwloadHistoryChatForCharacter:self.chatRLMObject.name];
     
     [self messageFromCharaster:@"" skipAdd:NO];
+    
+    [self performSelector:@selector(autoScrollBottom)
+               withObject:self
+               afterDelay:0.3];
+}
+
+- (void)autoScrollBottom {
+    CGPoint bottomOffset = CGPointMake(0, self.chatScrollView.contentSize.height - self.chatScrollView.bounds.size.height + self.chatScrollView.contentInset.bottom);
+    [self.chatScrollView setContentOffset:bottomOffset animated:YES];
 }
 
 -(void)donwloadHistoryChatForCharacter:(NSString *)idCharaster {
@@ -72,7 +81,6 @@
             [self messageFromUser:us1[i] addSkip:YES];
         }
     }
-
 }
 
 - (void)messageFromCharaster:(NSString *)message skipAdd:(BOOL)skip{
@@ -90,6 +98,10 @@
         dialogView.textLabel.text = message;
     }
     [self.dialogStackView addArrangedSubview:dialogView];
+    
+    CGPoint bottomOffset = CGPointMake(0, self.chatScrollView.contentSize.height - self.chatScrollView.bounds.size.height + self.chatScrollView.contentInset.bottom + 2.5 * dialogView.frame.size.height);
+    [self.chatScrollView setContentOffset:bottomOffset animated:YES];
+    
 }
 
 - (void)setMyReplicas {
