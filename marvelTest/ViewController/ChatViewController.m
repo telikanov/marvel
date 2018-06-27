@@ -14,6 +14,7 @@
 
 @interface ChatViewController () {
     DataManager *dataManager;
+    NSString *currentReplica;
 }
 @end
 
@@ -32,6 +33,7 @@
                                                object:nil];
     
     [self firstMessageFrom];
+    [self setMyReplicas];
 }
 
 - (void)firstMessageFrom {
@@ -40,10 +42,41 @@
     SDImageCache* myCache = [SDImageCache sharedImageCache];
     UIImage* avatar = [myCache imageFromDiskCacheForKey:self.chatRLMObject.avatarPath];
     dialogView.avatarImageView.image = avatar;
-    dialogView.textLabel.text = [NSString stringWithFormat:@"Привет, мой друг, меня зовут %@",self.chatRLMObject.name];
+    dialogView.textLabel.text = [NSString stringWithFormat:@"Привет,герой, меня зовут %@",self.chatRLMObject.name];
     
     [self.dialogStackView addArrangedSubview:dialogView];
     
+}
+
+- (void)setMyReplicas {
+    NSArray *myReplicas = [NSArray arrayWithObjects:@"Привет, я твой создатель!", @"Ты кто такой?", @"Хочу спать", nil];
+    for(NSString *replicas in myReplicas) {
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        [button setTitle:replicas forState:UIControlStateNormal];
+        [button setBackgroundColor:[UIColor redColor]];
+        [button addTarget:self
+                   action:@selector(touchDown:)
+         forControlEvents:UIControlEventTouchUpInside];
+        CGRect      buttonFrame = button.frame;
+        buttonFrame.size = CGSizeMake(150, 70);
+        button.frame = buttonFrame;
+        [self.variantsAnswersStackView addArrangedSubview:button];
+    }
+}
+
+- (IBAction)touchDown:(id)sender {
+    UIButton *button = (UIButton*)sender;
+    DialogCharasterView *dialogView = [[[NSBundle mainBundle] loadNibNamed:@"DialogCharasterView" owner:self options:nil] objectAtIndex:0];
+    
+    dialogView.avatarImageView.hidden = YES;
+    dialogView.textLabel.text = button.titleLabel.text;
+    dialogView.containerText.backgroundColor = [UIColor grayColor];
+    [dialogView.containerText.layer setCornerRadius:9];
+    dialogView.layer.cornerRadius = 10;
+    dialogView.clipsToBounds = true;
+    
+    
+    [self.dialogStackView addArrangedSubview:dialogView];
 }
 
 - (void)didReceiveMemoryWarning {
