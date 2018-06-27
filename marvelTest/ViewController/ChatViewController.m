@@ -26,26 +26,26 @@
     dataManager = [DataManager new];
     self.chatRLMObject = [dataManager getDialogWithID:self.idCharaster];
     [self.navigationItem setTitle:[NSString stringWithFormat:@"%@", self.chatRLMObject.name]];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(firstMessageFrom)
-                                                 name:@"FirsDialog"
-                                               object:nil];
-    
-    [self firstMessageFrom];
+    if([[NSUserDefaults standardUserDefaults] valueForKey:idStirng] == 0) {
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:self.idCharaster];
+        [self messageFromCharaster:@""];
+    }
     [self setMyReplicas];
 }
 
-- (void)firstMessageFrom {
+- (void)messageFromCharaster:(NSString *)message {
     DialogCharasterView *dialogView = [[[NSBundle mainBundle] loadNibNamed:@"DialogCharasterView" owner:self options:nil] objectAtIndex:0];
     
     SDImageCache* myCache = [SDImageCache sharedImageCache];
     UIImage* avatar = [myCache imageFromDiskCacheForKey:self.chatRLMObject.avatarPath];
     dialogView.avatarImageView.image = avatar;
-    dialogView.textLabel.text = [NSString stringWithFormat:@"Привет,герой, меня зовут %@",self.chatRLMObject.name];
+    if([message isEqualToString:@""]){
+        dialogView.textLabel.text = [NSString stringWithFormat:@"Привет,герой, меня зовут %@",self.chatRLMObject.name];
+    } else {
+        dialogView.textLabel.text = message;
+    }
     
     [self.dialogStackView addArrangedSubview:dialogView];
-    
 }
 
 - (void)setMyReplicas {
@@ -74,9 +74,21 @@
     [dialogView.containerText.layer setCornerRadius:9];
     dialogView.layer.cornerRadius = 10;
     dialogView.clipsToBounds = true;
-    
-    
     [self.dialogStackView addArrangedSubview:dialogView];
+    
+    [self sendAnswerCharaster:button.titleLabel.text];
+}
+
+- (void)sendAnswerCharaster:(NSString *)userReplic {
+    NSString *repeatedAnswe;
+    if ([userReplic isEqualToString:@"Привет, я твой создатель!"]) {
+        repeatedAnswe = @"Мой прородитель ВЕЛИКИЙ Мартин Гудмен! а ты ios-разработчик";
+    } else if ([userReplic isEqualToString:@"Ты кто такой?"]) {
+        repeatedAnswe = [NSString stringWithFormat: @"Я же представлялся! Я %@ ! О моих приключениях можешь почитать в комиксах",self.chatRLMObject.name];
+    } else {
+        repeatedAnswe =@"Тут еще одна геройская фраза";
+    }
+    [self messageFromCharaster:repeatedAnswe];
 }
 
 - (void)didReceiveMemoryWarning {
