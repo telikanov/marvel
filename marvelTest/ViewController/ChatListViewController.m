@@ -72,17 +72,13 @@
     return self.data.count;
 }
 
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     CharacterTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
     NSArray *arrayForCell = [self dataPreparationForCell:self.data cellForRowAtIndexPath:indexPath];
     
-    NSDictionary *imagePack = [arrayForCell valueForKey:@"thumbnail"];
-    NSString *pathImage = [imagePack valueForKey:@"path"];
-    NSString *extensionImage = [imagePack valueForKey:@"extension"];
-    self.allPath = [NSString stringWithFormat:@"%@.%@", pathImage, extensionImage];
-    
-    return [cell cellFilling:[arrayForCell valueForKey:@"name"] urlImage:self.allPath];
+    return [cell cellFilling:[arrayForCell valueForKey:@"name"] urlImage:[self getFullPathImage:arrayForCell]];
 }
 
 -(NSArray *)dataPreparationForCell:(NSMutableArray *)dataMutableArray cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -99,7 +95,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSArray *arrayForCell = [self dataPreparationForCell:self.data cellForRowAtIndexPath:indexPath];
-    [[DataManager new] insertDataIntoDataBaseWithId:[arrayForCell valueForKey:@"id"] witchName:[arrayForCell valueForKey:@"name"] witchAvatar:self.allPath];
+    [[DataManager new] insertDataIntoDataBaseWithId:[arrayForCell valueForKey:@"id"] witchName:[arrayForCell valueForKey:@"name"] witchAvatar:[self getFullPathImage:arrayForCell]];
     
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@" " style:UIBarButtonItemStylePlain target:nil action:nil];
     ChatViewController *chatViewController = [ChatViewController new];
@@ -107,6 +103,13 @@
     [self.navigationController pushViewController:chatViewController animated:YES];
 }
 
+- (NSString *)getFullPathImage:(NSArray *)arrayForCell {
+    NSDictionary *imagePack = [arrayForCell valueForKey:@"thumbnail"];
+    NSString *pathImage = [imagePack valueForKey:@"path"];
+    NSString *extensionImage = [imagePack valueForKey:@"extension"];
+    NSString *patchImage = [NSString stringWithFormat:@"%@.%@", pathImage, extensionImage];
+    return patchImage;
+}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {

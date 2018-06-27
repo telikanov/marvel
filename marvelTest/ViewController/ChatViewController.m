@@ -10,6 +10,7 @@
 #import "ChatRLMObject.h"
 #import "DataManager.h"
 #import "DialogCharasterView.h"
+#import "Dialog.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
 @interface ChatViewController () {
@@ -28,6 +29,7 @@
     [self.navigationItem setTitle:[NSString stringWithFormat:@"%@", self.chatRLMObject.name]];
     [self messageFromCharaster:@""];
     [self setMyReplicas];
+    [self donwloadChat];
 }
 
 - (void)messageFromCharaster:(NSString *)message {
@@ -43,6 +45,19 @@
     }
     
     [self.dialogStackView addArrangedSubview:dialogView];
+    
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    [realm beginWriteTransaction];
+    
+    Dialog *dialog = [Dialog new];
+    dialog.message = dialogView.textLabel.text;
+    dialog.autor = @"charaster";
+    
+    RLMArray <ChatRLMObject *> * chatRLMObjectArrays = (RLMArray <ChatRLMObject *> *)[ChatRLMObject allObjects];
+    ChatRLMObject *chatObject = chatRLMObjectArrays.firstObject;
+    [chatObject.dialog addObject:dialog];
+    
+    [realm commitWriteTransaction];
 }
 
 - (void)setMyReplicas {
@@ -74,6 +89,20 @@
     [self.dialogStackView addArrangedSubview:dialogView];
     
     [self sendAnswerCharaster:button.titleLabel.text];
+    
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    [realm beginWriteTransaction];
+    
+    Dialog *dialog = [Dialog new];
+    dialog.message = button.titleLabel.text;
+    dialog.autor = @"user";
+    
+    RLMArray <ChatRLMObject *> * chatRLMObjectArrays = (RLMArray <ChatRLMObject *> *)[ChatRLMObject allObjects];
+    ChatRLMObject *chatObject = chatRLMObjectArrays.firstObject;
+    [chatObject.dialog addObject:dialog];
+    
+    [realm commitWriteTransaction];
+    
 }
 
 - (void)sendAnswerCharaster:(NSString *)userReplic {
@@ -88,10 +117,9 @@
     [self messageFromCharaster:repeatedAnswe];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void) donwloadChat {
+    RLMResults *allPeople = [ChatRLMObject allObjects];
+    RLMResults *partyPeople = [ChatRLMObject objectsWhere:@"Dialog.author == charaster"];
 }
-
 
 @end

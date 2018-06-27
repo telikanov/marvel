@@ -11,6 +11,7 @@
 @interface Dialog : RLMObject
 
 @property NSString *message;
+@property NSString *autor;
 @property NSDate *date;
 
 @end
