@@ -29,7 +29,6 @@
     dataManager = [DataManager new];
     self.chatRLMObject = [dataManager getDialogWithID:self.idCharaster];
     
-    
     dictionary = [[NSMutableDictionary alloc] init];
     charasterReplicas = [[NSMutableArray alloc] init];
     userReplicas = [[NSMutableArray alloc] init];
@@ -37,12 +36,10 @@
     [self.navigationItem setTitle:[NSString stringWithFormat:@"%@", self.chatRLMObject.name]];
     [self setMyReplicas];
     
-    
     NSString *key = [NSString stringWithFormat:@"%ld",self.chatRLMObject.idCharaster];
     [dictionary setValue:self.chatRLMObject.name forKey:key];
     
     [self donwloadHistoryChatForCharacter:self.chatRLMObject.name];
-    
     
     [self messageFromCharaster:@"" skipAdd:NO];
 }
@@ -74,14 +71,6 @@
             }
         }
     }
-}
-
-- (void)dealloc {
-    [dictionary setValue:charasterReplicas forKey:@"charasterReplicase"];
-    [dictionary setValue:userReplicas forKey:@"userReplicase"];
-
-    [[NSUserDefaults standardUserDefaults] setObject:dictionary forKey:self.chatRLMObject.name];
-    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (void)messageFromCharaster:(NSString *)message skipAdd:(BOOL)skip{
@@ -150,6 +139,14 @@
     }
     [self messageFromCharaster:repeatedAnswe skipAdd:NO];
     [charasterReplicas addObject:repeatedAnswe];
+}
+
+- (void)dealloc {
+    [dictionary setValue:charasterReplicas forKey:@"charasterReplicase"];
+    [dictionary setValue:userReplicas forKey:@"userReplicase"];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:dictionary forKey:self.chatRLMObject.name];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 @end
