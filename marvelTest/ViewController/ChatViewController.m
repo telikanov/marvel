@@ -16,6 +16,9 @@
 @interface ChatViewController () {
     DataManager *dataManager;
     NSString *currentReplica;
+    NSMutableDictionary *dictionary;
+    NSMutableArray *charasterReplicas;
+    NSMutableArray *userReplicas;
 }
 @end
 
@@ -23,16 +26,65 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationController.navigationBar.translucent = NO;
     dataManager = [DataManager new];
     self.chatRLMObject = [dataManager getDialogWithID:self.idCharaster];
+    
+    
+    dictionary = [[NSMutableDictionary alloc] init];
+    charasterReplicas = [[NSMutableArray alloc] init];
+    userReplicas = [[NSMutableArray alloc] init];
+    
     [self.navigationItem setTitle:[NSString stringWithFormat:@"%@", self.chatRLMObject.name]];
-    [self messageFromCharaster:@""];
     [self setMyReplicas];
-    [self donwloadChat];
+    
+    
+    NSString *key = [NSString stringWithFormat:@"%ld",self.chatRLMObject.idCharaster];
+    [dictionary setValue:self.chatRLMObject.name forKey:key];
+    
+    [self donwloadHistoryChatForCharacter:self.chatRLMObject.name];
+    
+    
+    [self messageFromCharaster:@"" skipAdd:NO];
 }
 
-- (void)messageFromCharaster:(NSString *)message {
+-(void)donwloadHistoryChatForCharacter:(NSString *)idCharaster {
+    NSMutableDictionary *historyChat = [[[NSUserDefaults standardUserDefaults] objectForKey:idCharaster]mutableCopy];
+    NSMutableArray *ch = [[historyChat objectForKey:@"charasterReplicase"] mutableCopy];
+    if(ch.count >0) {
+        charasterReplicas = [[historyChat objectForKey:@"charasterReplicase"] mutableCopy];
+    }
+    if([[historyChat objectForKey:@"userReplicase"] mutableCopy]) {
+        userReplicas = [[historyChat objectForKey:@"userReplicase"] mutableCopy];
+    }
+    if(!(charasterReplicas.count)){
+        return;
+    }
+    if(!(userReplicas.count)) {
+        return;
+    }
+    
+    NSArray *ch1 = [charasterReplicas mutableCopy];
+    NSArray *us1 = [userReplicas mutableCopy];
+    
+    for(int i = 0; i < [ch1 count]; i++) {
+        [self messageFromCharaster:ch1[i]skipAdd:YES];
+        if (i >= 1) {
+            for(int j = 0; j < [us1 count]; j++) {
+                [self messageFromUser:us1[j]];
+            }
+        }
+    }
+}
+
+- (void)dealloc {
+    [dictionary setValue:charasterReplicas forKey:@"charasterReplicase"];
+    [dictionary setValue:userReplicas forKey:@"userReplicase"];
+
+    [[NSUserDefaults standardUserDefaults] setObject:dictionary forKey:self.chatRLMObject.name];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (void)messageFromCharaster:(NSString *)message skipAdd:(BOOL)skip{
     DialogCharasterView *dialogView = [[[NSBundle mainBundle] loadNibNamed:@"DialogCharasterView" owner:self options:nil] objectAtIndex:0];
     
     SDImageCache* myCache = [SDImageCache sharedImageCache];
@@ -40,24 +92,13 @@
     dialogView.avatarImageView.image = avatar;
     if([message isEqualToString:@""]){
         dialogView.textLabel.text = [NSString stringWithFormat:@"Привет,герой, меня зовут %@",self.chatRLMObject.name];
+        if (!skip) {
+            [charasterReplicas addObject:dialogView.textLabel.text];
+        }
     } else {
         dialogView.textLabel.text = message;
     }
-    
     [self.dialogStackView addArrangedSubview:dialogView];
-    
-    RLMRealm *realm = [RLMRealm defaultRealm];
-    [realm beginWriteTransaction];
-    
-    Dialog *dialog = [Dialog new];
-    dialog.message = dialogView.textLabel.text;
-    dialog.autor = @"charaster";
-    
-    RLMArray <ChatRLMObject *> * chatRLMObjectArrays = (RLMArray <ChatRLMObject *> *)[ChatRLMObject allObjects];
-    ChatRLMObject *chatObject = chatRLMObjectArrays.firstObject;
-    [chatObject.dialog addObject:dialog];
-    
-    [realm commitWriteTransaction];
 }
 
 - (void)setMyReplicas {
@@ -78,31 +119,22 @@
 
 - (IBAction)touchDown:(id)sender {
     UIButton *button = (UIButton*)sender;
+    [self messageFromUser:button.titleLabel.text];
+    [userReplicas addObject:button.titleLabel.text];
+}
+
+- (void)messageFromUser:(NSString *)message {
     DialogCharasterView *dialogView = [[[NSBundle mainBundle] loadNibNamed:@"DialogCharasterView" owner:self options:nil] objectAtIndex:0];
     
     dialogView.avatarImageView.hidden = YES;
-    dialogView.textLabel.text = button.titleLabel.text;
+    dialogView.textLabel.text = message;
     dialogView.containerText.backgroundColor = [UIColor grayColor];
     [dialogView.containerText.layer setCornerRadius:9];
     dialogView.layer.cornerRadius = 10;
     dialogView.clipsToBounds = true;
+    
     [self.dialogStackView addArrangedSubview:dialogView];
-    
-    [self sendAnswerCharaster:button.titleLabel.text];
-    
-    RLMRealm *realm = [RLMRealm defaultRealm];
-    [realm beginWriteTransaction];
-    
-    Dialog *dialog = [Dialog new];
-    dialog.message = button.titleLabel.text;
-    dialog.autor = @"user";
-    
-    RLMArray <ChatRLMObject *> * chatRLMObjectArrays = (RLMArray <ChatRLMObject *> *)[ChatRLMObject allObjects];
-    ChatRLMObject *chatObject = chatRLMObjectArrays.firstObject;
-    [chatObject.dialog addObject:dialog];
-    
-    [realm commitWriteTransaction];
-    
+    [self sendAnswerCharaster:message];
 }
 
 - (void)sendAnswerCharaster:(NSString *)userReplic {
@@ -114,12 +146,8 @@
     } else {
         repeatedAnswe =@"Тут еще одна геройская фраза";
     }
-    [self messageFromCharaster:repeatedAnswe];
-}
-
-- (void) donwloadChat {
-    RLMResults *allPeople = [ChatRLMObject allObjects];
-    RLMResults *partyPeople = [ChatRLMObject objectsWhere:@"Dialog.author == charaster"];
+    [self messageFromCharaster:repeatedAnswe skipAdd:NO];
+    [charasterReplicas addObject:repeatedAnswe];
 }
 
 @end
