@@ -56,7 +56,7 @@
             weakSelf.responseJSON = [weakSelf.responseJSON valueForKey:@"results"];
             [weakSelf.data addObjectsFromArray:weakSelf.responseJSON];
             weakSelf.offsetCharacters += 30;
-            [[self tableView] reloadData];
+//            [[self tableView] reloadData];
         }
     }];
 }

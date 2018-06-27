@@ -99,8 +99,13 @@
     }
     [self.dialogStackView addArrangedSubview:dialogView];
     
-    CGPoint bottomOffset = CGPointMake(0, self.chatScrollView.contentSize.height - self.chatScrollView.bounds.size.height + self.chatScrollView.contentInset.bottom + 2.5 * dialogView.frame.size.height);
-    [self.chatScrollView setContentOffset:bottomOffset animated:YES];
+    if (self.chatScrollView.contentSize.height + 2.5 * dialogView.frame.size.height > self.chatScrollView.frame.size.height) {
+        CGPoint bottomOffset = CGPointMake(0, self.chatScrollView.contentSize.height - self.chatScrollView.bounds.size.height + self.chatScrollView.contentInset.bottom + 2.5 * dialogView.frame.size.height);
+        [self.chatScrollView setContentOffset:bottomOffset animated:YES];
+    } else {
+        CGPoint bottomOffset = CGPointMake(0, self.chatScrollView.contentSize.height - self.chatScrollView.bounds.size.height - self.chatScrollView.contentInset.bottom - 2.5 * dialogView.frame.size.height);
+        [self.chatScrollView setContentOffset:bottomOffset animated:YES];
+    }
     
 }
 
