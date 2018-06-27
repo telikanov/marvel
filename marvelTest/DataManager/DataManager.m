@@ -16,7 +16,6 @@
     if(existObject) {
         return;
     }
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"FirsDialog" object:nil];
     RLMRealm *realm = [RLMRealm defaultRealm];
     [realm beginWriteTransaction];
     

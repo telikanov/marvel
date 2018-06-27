@@ -26,10 +26,7 @@
     dataManager = [DataManager new];
     self.chatRLMObject = [dataManager getDialogWithID:self.idCharaster];
     [self.navigationItem setTitle:[NSString stringWithFormat:@"%@", self.chatRLMObject.name]];
-    if([[NSUserDefaults standardUserDefaults] valueForKey:idStirng] == 0) {
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:self.idCharaster];
-        [self messageFromCharaster:@""];
-    }
+    [self messageFromCharaster:@""];
     [self setMyReplicas];
 }
 
