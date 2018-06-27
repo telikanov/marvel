@@ -36,9 +36,6 @@
     [self.navigationItem setTitle:[NSString stringWithFormat:@"%@", self.chatRLMObject.name]];
     [self setMyReplicas];
     
-    NSString *key = [NSString stringWithFormat:@"%ld",self.chatRLMObject.idCharaster];
-    [dictionary setValue:self.chatRLMObject.name forKey:key];
-    
     [self donwloadHistoryChatForCharacter:self.chatRLMObject.name];
     
     [self messageFromCharaster:@"" skipAdd:NO];
@@ -46,6 +43,12 @@
 
 -(void)donwloadHistoryChatForCharacter:(NSString *)idCharaster {
     NSMutableDictionary *historyChat = [[[NSUserDefaults standardUserDefaults] objectForKey:idCharaster]mutableCopy];
+    
+    if(!historyChat) {
+        NSString *key = [NSString stringWithFormat:@"%ld",self.chatRLMObject.idCharaster];
+        [dictionary setValue:self.chatRLMObject.name forKey:key];
+    }
+    
     NSMutableArray *ch = [[historyChat objectForKey:@"charasterReplicase"] mutableCopy];
     if(ch.count >0) {
         charasterReplicas = [[historyChat objectForKey:@"charasterReplicase"] mutableCopy];
@@ -64,13 +67,12 @@
     NSArray *us1 = [userReplicas mutableCopy];
     
     for(int i = 0; i < [ch1 count]; i++) {
-        [self messageFromCharaster:ch1[i]skipAdd:YES];
-        if (i >= 1) {
-            for(int j = 0; j < [us1 count]; j++) {
-                [self messageFromUser:us1[j] addSkip:YES];
-            }
+        [self messageFromCharaster:ch1[i] skipAdd:YES];
+        if(i < us1.count) {
+            [self messageFromUser:us1[i] addSkip:YES];
         }
     }
+
 }
 
 - (void)messageFromCharaster:(NSString *)message skipAdd:(BOOL)skip{
