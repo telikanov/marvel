@@ -70,7 +70,7 @@
         [self messageFromCharaster:ch1[i]skipAdd:YES];
         if (i >= 1) {
             for(int j = 0; j < [us1 count]; j++) {
-                [self messageFromUser:us1[j]];
+                [self messageFromUser:us1[j] addSkip:YES];
             }
         }
     }
@@ -119,11 +119,11 @@
 
 - (IBAction)touchDown:(id)sender {
     UIButton *button = (UIButton*)sender;
-    [self messageFromUser:button.titleLabel.text];
+    [self messageFromUser:button.titleLabel.text addSkip:NO];
     [userReplicas addObject:button.titleLabel.text];
 }
 
-- (void)messageFromUser:(NSString *)message {
+- (void)messageFromUser:(NSString *)message addSkip:(BOOL)skip {
     DialogCharasterView *dialogView = [[[NSBundle mainBundle] loadNibNamed:@"DialogCharasterView" owner:self options:nil] objectAtIndex:0];
     
     dialogView.avatarImageView.hidden = YES;
@@ -134,7 +134,9 @@
     dialogView.clipsToBounds = true;
     
     [self.dialogStackView addArrangedSubview:dialogView];
-    [self sendAnswerCharaster:message];
+    if(!skip) {
+        [self sendAnswerCharaster:message];
+    }
 }
 
 - (void)sendAnswerCharaster:(NSString *)userReplic {
