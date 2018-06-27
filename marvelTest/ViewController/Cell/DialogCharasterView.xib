@@ -17,7 +17,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="110"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vfU-79-3hZ">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vfU-79-3hZ">
                     <rect key="frame" x="15" y="25" width="60" height="60"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="60" id="NYg-3t-htz"/>
@@ -62,6 +62,7 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
                 <outlet property="avatarImageView" destination="vfU-79-3hZ" id="gid-QD-RQx"/>
+                <outlet property="containerText" destination="oC2-TJ-isr" id="A8X-AK-pH4"/>
                 <outlet property="textLabel" destination="rdJ-wc-vbN" id="ndq-e6-ocC"/>
             </connections>
             <point key="canvasLocation" x="33.5" y="54"/>

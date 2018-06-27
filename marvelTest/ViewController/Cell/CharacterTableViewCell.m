@@ -27,7 +27,8 @@
                                placeholderImage:[UIImage imageNamed:@"placeholder"]];
     
     self.layer.masksToBounds = true;
-    [self.charasterImageView.layer setCornerRadius:12];
+    [self.charasterImageView.layer setCornerRadius:35];
+    [self.charasterImageView setClipsToBounds:YES];
     
     return self;
 }

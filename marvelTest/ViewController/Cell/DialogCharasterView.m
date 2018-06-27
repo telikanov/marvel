@@ -13,6 +13,9 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    
+    [self.avatarImageView.layer setCornerRadius:30];
+    [self.containerText.layer setCornerRadius:20];
 }
 
 @end

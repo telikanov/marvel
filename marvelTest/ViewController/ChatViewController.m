@@ -98,6 +98,8 @@
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         [button setTitle:replicas forState:UIControlStateNormal];
         [button setBackgroundColor:[UIColor redColor]];
+        [button.layer setCornerRadius:10];
+        [button setClipsToBounds:YES];
         [button addTarget:self
                    action:@selector(touchDown:)
          forControlEvents:UIControlEventTouchUpInside];
@@ -119,9 +121,8 @@
     
     dialogView.avatarImageView.hidden = YES;
     dialogView.textLabel.text = message;
-    dialogView.containerText.backgroundColor = [UIColor grayColor];
-    [dialogView.containerText.layer setCornerRadius:9];
-    dialogView.layer.cornerRadius = 10;
+    dialogView.containerText.backgroundColor = [UIColor blueColor];
+    [dialogView.containerText.layer setCornerRadius:20];
     dialogView.clipsToBounds = true;
     
     [self.dialogStackView addArrangedSubview:dialogView];
