@@ -13,25 +13,25 @@
 #import "Dialog.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
-@interface ChatViewController () {
-    DataManager *dataManager;
-    NSString *currentReplica;
-    NSMutableDictionary *dictionary;
-    NSMutableArray *charasterReplicas;
-    NSMutableArray *userReplicas;
-}
+@interface ChatViewController ()
+@property (nonatomic, strong) DataManager *dataManager;
+@property (nonatomic, strong) NSString *currentReplica;
+@property (nonatomic, strong) NSMutableDictionary *dictionary;
+@property (nonatomic, retain) NSMutableArray *charasterReplicas;
+@property (nonatomic, retain) NSMutableArray *userReplicas;
+
 @end
 
 @implementation ChatViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    dataManager = [DataManager new];
-    self.chatRLMObject = [dataManager getDialogWithID:self.idCharaster];
+    self.dataManager = [DataManager new];
+    self.chatRLMObject = [self.dataManager getDialogWithID:self.idCharaster];
     
-    dictionary = [[NSMutableDictionary alloc] init];
-    charasterReplicas = [[NSMutableArray alloc] init];
-    userReplicas = [[NSMutableArray alloc] init];
+    self.dictionary = [[NSMutableDictionary alloc] init];
+    self.charasterReplicas = [[NSMutableArray alloc] init];
+    self.userReplicas = [[NSMutableArray alloc] init];
     
     [self.navigationItem setTitle:[NSString stringWithFormat:@"%@", self.chatRLMObject.name]];
     [self setMyReplicas];
@@ -55,25 +55,25 @@
     
     if(!historyChat) {
         NSString *key = [NSString stringWithFormat:@"%ld",self.chatRLMObject.idCharaster];
-        [dictionary setValue:self.chatRLMObject.name forKey:key];
+        [self.dictionary setValue:self.chatRLMObject.name forKey:key];
     }
     
     NSMutableArray *ch = [[historyChat objectForKey:@"charasterReplicase"] mutableCopy];
     if(ch.count >0) {
-        charasterReplicas = [[historyChat objectForKey:@"charasterReplicase"] mutableCopy];
+        self.charasterReplicas = [[historyChat objectForKey:@"charasterReplicase"] mutableCopy];
     }
     if([[historyChat objectForKey:@"userReplicase"] mutableCopy]) {
-        userReplicas = [[historyChat objectForKey:@"userReplicase"] mutableCopy];
+        self.userReplicas = [[historyChat objectForKey:@"userReplicase"] mutableCopy];
     }
-    if(!(charasterReplicas.count)){
+    if(!(self.charasterReplicas.count)){
         return;
     }
-    if(!(userReplicas.count)) {
+    if(!(self.userReplicas.count)) {
         return;
     }
     
-    NSArray *ch1 = [charasterReplicas mutableCopy];
-    NSArray *us1 = [userReplicas mutableCopy];
+    NSArray *ch1 = [self.charasterReplicas mutableCopy];
+    NSArray *us1 = [self.userReplicas mutableCopy];
     
     for(int i = 0; i < [ch1 count]; i++) {
         [self messageFromCharaster:ch1[i] skipAdd:YES];
@@ -92,7 +92,7 @@
     if([message isEqualToString:@""]){
         dialogView.textLabel.text = [NSString stringWithFormat:@"Привет,герой, меня зовут %@",self.chatRLMObject.name];
         if (!skip) {
-            [charasterReplicas addObject:dialogView.textLabel.text];
+            [self.charasterReplicas addObject:dialogView.textLabel.text];
         }
     } else {
         dialogView.textLabel.text = message;
@@ -130,7 +130,7 @@
 - (IBAction)touchDown:(id)sender {
     UIButton *button = (UIButton*)sender;
     [self messageFromUser:button.titleLabel.text addSkip:NO];
-    [userReplicas addObject:button.titleLabel.text];
+    [self.userReplicas addObject:button.titleLabel.text];
 }
 
 - (void)messageFromUser:(NSString *)message addSkip:(BOOL)skip {
@@ -158,14 +158,14 @@
         repeatedAnswe =@"Тут еще одна геройская фраза";
     }
     [self messageFromCharaster:repeatedAnswe skipAdd:NO];
-    [charasterReplicas addObject:repeatedAnswe];
+    [self.charasterReplicas addObject:repeatedAnswe];
 }
 
 - (void)dealloc {
-    [dictionary setValue:charasterReplicas forKey:@"charasterReplicase"];
-    [dictionary setValue:userReplicas forKey:@"userReplicase"];
+    [self.dictionary setValue:self.charasterReplicas forKey:@"charasterReplicase"];
+    [self.dictionary setValue:self.userReplicas forKey:@"userReplicase"];
     
-    [[NSUserDefaults standardUserDefaults] setObject:dictionary forKey:self.chatRLMObject.name];
+    [[NSUserDefaults standardUserDefaults] setObject:self.dictionary forKey:self.chatRLMObject.name];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
